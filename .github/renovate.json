@@ -5,6 +5,7 @@
     "helpers:pinGitHubActionDigests",
     "docker:pinDigests"
   ],
+  "ignorePaths": ["Archive/**"]
   "rebaseWhen": "conflicted",
   "automerge": true,
   "regexManagers": [
