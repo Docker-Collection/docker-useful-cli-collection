@@ -1,0 +1,39 @@
+name: Docker
+
+on:
+  workflow_dispatch: {}
+  # schedule:
+  #   - cron: "0 16 * * 1"
+  push:
+    branches:
+      - main
+    paths:
+      - speedtest-cli/Dockerfile
+  pull_request:
+    paths:
+      - speedtest-cli/Dockerfile
+
+concurrency: 
+  group: ${{ github.workflow }}-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  docker:
+    name: docker build ${{ matrix.name }}
+    strategy:
+      matrix:
+        include:
+          - name: "Speedtest CLI"
+            docker: "speedtest-cli"
+            dockerfile: "speedtest-cli/Dockerfile"
+            version_detect: false
+            version_value: ""
+    uses: Docker-Collection/reusable-workflows/.github/workflows/docker-build.yml@main
+    with:
+      docker_name: "ghcr.io/docker-collection/${{ matrix.docker }}"
+      dockerfile: ${{ matrix.dockerfile }}
+      docker_label_author: "Efina"
+      docker_label_title: "Docker Useful CLI Collection (${{ matrix.name }})"
+      docker_label_description: "A simple collection collect random cli"
+      version_detecter: ${{ matrix.version_detect }}
+      version_detecter_var: ${{ matrix.version_value }}
