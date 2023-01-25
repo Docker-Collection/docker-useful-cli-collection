@@ -28,6 +28,11 @@ jobs:
             dockerfile: "speedtest-cli/Dockerfile"
             version_detect: false
             version_value: ""
+          - name: "Speed Cloudflare CLI"
+            docker: "speed-cloudflare-cli"
+            dockerfile: "speed-cloudflare-cli/Dockerfile"
+            version_detect: false
+            version_value: ""
     uses: Docker-Collection/reusable-workflows/.github/workflows/docker-build.yml@main
     with:
       docker_name: "ghcr.io/docker-collection/${{ matrix.docker }}"
