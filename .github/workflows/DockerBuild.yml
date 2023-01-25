@@ -8,10 +8,12 @@ on:
     branches:
       - main
     paths:
-      - speedtest-cli/Dockerfile
+      - "speedtest-cli/Dockerfile"
+      - "speed-cloudflare-cli/Dockerfile"
   pull_request:
     paths:
-      - speedtest-cli/Dockerfile
+      - "speedtest-cli/Dockerfile"
+      - "speed-cloudflare-cli/Dockerfile"
 
 concurrency: 
   group: ${{ github.workflow }}-${{ github.ref }}
