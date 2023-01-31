@@ -5,7 +5,7 @@ WORKDIR /workdir
 RUN apk add --update curl && \
     curl -Lo speedtest-cli https://raw.githubusercontent.com/sivel/speedtest-cli/master/speedtest.py
 
-FROM gcr.io/distroless/python3-debian11:nonroot@sha256:7f600e0516c3847c20197fe33b820904098594222f0e73295e29be49d4781350
+FROM gcr.io/distroless/python3-debian11:nonroot@sha256:b3e96095ca6cf5a452f38936e1f54be191779c891a0946ac9b9d1dab4cbb7a00
 
 COPY --from=Builder --chown=nonroot /workdir/speedtest-cli .
 
