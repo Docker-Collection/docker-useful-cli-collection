@@ -1,4 +1,4 @@
-FROM node:lts-alpine3.17@sha256:ca5d399560a9d239cbfa28eec00417f1505e5e108f3ec6938d230767eaa81f61 AS Builder
+FROM node:lts-alpine3.17@sha256:1ccc70acda680aa4ba47f53e7c40b2d4d6892de74817128e0662d32647dd7f4d AS Builder
 
 WORKDIR /app
 
