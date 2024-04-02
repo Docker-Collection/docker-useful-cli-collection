@@ -4,7 +4,7 @@ WORKDIR /app
 
 RUN npm i speed-cloudflare-cli
 
-FROM gcr.io/distroless/nodejs18-debian11:nonroot@sha256:9bcaa0640b86cb221162bff86e5025fd0be43a01a86c8d29d3897db7e80676a9
+FROM gcr.io/distroless/nodejs18-debian11:nonroot@sha256:f114665393ee2bfaf98d4f710f2174e36c7ba00211f933515cbbb0432155a230
 
 COPY --from=Builder /app/node_modules/ .
 
