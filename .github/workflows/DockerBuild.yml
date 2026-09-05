@@ -35,7 +35,7 @@ jobs:
             dockerfile: "speed-cloudflare-cli/Dockerfile"
             version_detect: false
             version_value: ""
-    uses: Docker-Collection/reusable-workflows/.github/workflows/docker-build.yml@main
+    uses: Docker-Collection/reusable-workflows/.github/workflows/docker-build.yml@48ebc9edaee6ee6d03335dfd37fd9abf1abd5fb0 # main
     with:
       docker_name: "ghcr.io/docker-collection/${{ matrix.docker }}"
       dockerfile: ${{ matrix.dockerfile }}
